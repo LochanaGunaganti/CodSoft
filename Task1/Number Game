@@ -1,0 +1,62 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class RandomNumberGame{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Start the game loop
+        numberGame(scanner);
+        scanner.close();
+    }
+
+    // Method to generate a random number between 0 and 99.
+    public static int randomNumber() {
+        Random random = new Random();
+        // Generates random number. 
+        return random.nextInt(100); 
+    }
+
+    // Method to play the number guessing game
+    public static void numberGame(Scanner scanner) {
+        int count = 0;
+
+        // Infinite loop to keep playing the game until the user chooses to exit.
+        while (true) {  
+            // Start a game with 10 attempts
+            for (int i = 1; i <= 10; i++) {
+                System.out.println("Enter a number (attempt " + (i) + " of 10):");
+                int n = scanner.nextInt();
+                if(randomNumber() < n){
+                    System.out.println("Your guess seems to be a bit high.");
+                }
+                else if(randomNumber() > n){
+                    System.out.println("Your guess seems to be a bit low.");
+                }
+                else{
+                    System.out.println("Congrats! You have made the right guess and won.");
+                    count = count+1;
+                }
+            }
+            System.out.println("You have won "+count+" times");
+            // Ask if the player wants to play the game again or not after the game end.
+            anotherChoice(scanner);
+        }
+    }
+
+    // Method to ask the player if they want to play again or not.
+    public static void anotherChoice(Scanner scanner) {
+        scanner.nextLine(); 
+        System.out.println("Do you want to play again? (y/n)");
+        String answer = scanner.nextLine(); 
+
+        // If the player enters 'y', restart the game; otherwise exit the game.
+        if (answer.equals("y")) {
+            // Restart the game
+            numberGame(scanner);
+        } else {
+            System.out.println("Thanks for playing!");
+            // Exit the program when the user doesn't want to play again
+            System.exit(0);  
+        }
+    }
+}
