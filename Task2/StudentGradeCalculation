@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Let's calculate the grade.");
+        System.out.print("Enter the number of subjects : ");
+        int num_of_subjects = scanner.nextInt();
+
+        Student student = new Student(num_of_subjects);
+
+        System.out.println("Enter " + num_of_subjects + " subject marks out of 100 :");
+        //Loop collects the marks for all subjects from the user.
+        for (int i = 0; i < num_of_subjects; i++) {
+            System.out.print("Enter the marks of subject " + (i+1) + ": ");
+            int mark = scanner.nextInt();
+            student.setMarks(i , mark); 
+        }
+
+        int totalMarks = student.getTotalMarks();
+        int averagePercentage = student.getAveragePercentage();
+
+        GradeCalculator gradeCalculator = new GradeCalculator();
+        String grade = gradeCalculator.calculateGrade(averagePercentage);
+
+        System.out.println("The total marks are " + totalMarks + ", the average percentage is " 
+            + averagePercentage + "%, and the grade is " + grade + ".");
+
+        scanner.close();
+    }
+}
+//Student class holds the marks for each subject and has methods to calculate total marks and average percentage.
+class Student {
+    private int[] marks;
+    private int numOfSubjects;
+
+    public Student(int numOfSubjects) {
+        this.numOfSubjects = numOfSubjects;
+        this.marks = new int[numOfSubjects];
+    }
+
+    public void setMarks(int index, int mark) {
+        if (index >= 0 && index < numOfSubjects) {
+            marks[index] = mark;
+        }
+    }
+
+    public int getMarks(int index) {
+        if (index >= 0 && index < numOfSubjects) {
+            return marks[index];
+        }
+        return -1; 
+    }
+
+    
+    public int getTotalMarks() {
+        int sum = 0;
+        for (int i = 0; i < numOfSubjects; i++) {
+            sum += marks[i];
+        }
+        return sum;
+    }
+    
+    public int getAveragePercentage() {
+        return getTotalMarks() / numOfSubjects;
+    }
+}
+//GradeCalculator class determines the grade based on the average percentage.
+class GradeCalculator {
+
+    public String calculateGrade(int percentage) {
+        if (percentage > 90) {
+            return "O";
+        } else if (percentage > 80) {
+            return "A+";
+        } else if (percentage > 70) {
+            return "A";
+        } else if (percentage > 60) {
+            return "B+";
+        } else if (percentage > 50) {
+            return "B";
+        } else if (percentage > 40) {
+            return "C";
+        } else if (percentage > 35) {
+            return "D";
+        } else {
+            return "Fail";
+        }
+    }
+}
