@@ -19,7 +19,6 @@ This project is a simple number-guessing game where the user attempts to guess a
 4. If you guess the number correctly, the game will display your score and give you the option to play again.
 5. The game ends when you either guess the number correctly or run out of attempts.
 
-
 #TASK2
 # **Student Grade Calculation**
 
