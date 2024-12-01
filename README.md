@@ -78,3 +78,75 @@ Let’s assume the student has marks in the following subjects:
 - **Total Marks**: 338
 - **Average Percentage**: 84.5%
 - **Grade**: B
+
+
+
+
+#TASK 3
+
+### ATM Machine Simulation
+A Java-based program simulating an ATM machine with essential banking operations such as withdrawing, depositing, and checking balance. The program includes input validation, a simple user interface, and meaningful error messages.
+
+### **Features**
+**Check Balance**: 
+Allows the user to view their current account balance.
+**Deposit Money**:
+Enables the user to add money to their account.
+**Withdraw Money**:
+Allows the user to withdraw money if sufficient balance is available.
+**Exit**:
+Ends the ATM session.
+
+### **How It Works**
+
+### **The BankAccount class:**
+
+Stores the user's account balance.
+Provides methods for depositing, withdrawing, and checking the balance.
+Validates inputs to ensure proper operation (e.g., no negative deposits or withdrawals exceeding the balance).
+The ATM class:
+
+Provides a user-friendly menu-driven interface.
+Integrates with the BankAccount class to perform operations based on user choices.
+Handles invalid inputs and displays appropriate messages.
+
+### **The Main class:**
+
+Creates a bank account with an initial balance.
+Instantiates the ATM and connects it to the bank account.
+Displays the menu and processes user inputs in a loop.
+
+### **Output**:
+**ATM Menu:**
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 1
+Your current balance is: 1000.0
+
+**ATM Menu:**
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 2
+Enter amount to deposit: 500
+Successfully deposited: 500.0
+
+**ATM Menu:**
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 3
+Enter amount to withdraw: 300
+Successfully withdrawn: 300.0
+
+**ATM Menu:**
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+Enter your choice: 4
+Thank you for using the ATM. Goodbye!
