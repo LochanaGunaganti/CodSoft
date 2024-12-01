@@ -84,7 +84,7 @@ Let’s assume the student has marks in the following subjects:
 
 #TASK 3
 
-### ATM Machine Simulation
+### **ATM Machine Simulation**
 A Java-based program simulating an ATM machine with essential banking operations such as withdrawing, depositing, and checking balance. The program includes input validation, a simple user interface, and meaningful error messages.
 
 ### **Features**
